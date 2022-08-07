@@ -13,14 +13,38 @@
     body {
       background-color: rgb(248, 249, 250);
     }
+    main div.container {
+      background-color: #f8f9fa;
+      min-width: 300px;
+      max-width: 576px;
+      border-radius: 5%;
+      filter: drop-shadow(0 0 10px gray);
+    }
+    
+
   </style>
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <main class="my-5">
+    <div class="container p-5">
+      <!-- <div class="alert alert-danger text-center" role="alert"> -->
+        <!-- <h4 class="alert-heading">Funcionalidad en desarrollo</h4> -->
+      <!-- </div> -->
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="img/login.png" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col px-4">
+          <h3 class="my-3 ps-1">Ingresa</h3>
+          <form action="" class="d-flex flex-column justify-content-center gap-3">
+            <input class="form-control form-control-lg" type="email" name="email" id="email" placeholder="Correo">
+            <input class="form-control form-control-lg" type="password" name="password" id="password" placeholder="Contraseña">
+            <button class="btn btn-primary form-control" type="submit">ENTRAR</button>
+          </form>
+        </div>
       </div>
     </div>
   </main>
