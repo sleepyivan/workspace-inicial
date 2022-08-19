@@ -1,3 +1,17 @@
+function checkLoginStatus() {
+    if (sessionStorage.getItem("LOGGEDIN") === null) {
+        sessionStorage.setItem("LOGGEDIN", "false")
+        sessionStorage.setItem("LOGGEDIN.PRINTED", "false")
+    }
+    if (sessionStorage.getItem("LOGGEDIN") === "false") {
+        window.location = "login.html"
+    }
+    if (sessionStorage.getItem("LOGGEDIN") === "true" && sessionStorage.getItem("LOGGEDIN.PRINTED") === "false") {
+        window.alert("Gracias por ingresar!")
+        sessionStorage.setItem("LOGGEDIN.PRINTED", "true")
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -11,4 +25,5 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    checkLoginStatus();
 });
