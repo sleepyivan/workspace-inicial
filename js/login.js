@@ -8,6 +8,7 @@ function login(form) {
     if (email_check && password_check) {
         // Login success
         sessionStorage.setItem("LOGGEDIN", "true");
+        sessionStorage.setItem("LOGGEDIN.ACCOUNT", form.email.value);
         window.location.replace("index.html");
     } else {
         // Login fail

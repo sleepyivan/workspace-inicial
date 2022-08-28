@@ -39,3 +39,14 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function updateLoggedInAccount () {
+  const node = document.getElementById("nav_account")
+
+  if (node !== null) {
+    node.innerText = sessionStorage.getItem("LOGGEDIN.ACCOUNT");
+
+  }
+}
+
+updateLoggedInAccount();
