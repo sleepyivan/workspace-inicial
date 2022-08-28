@@ -1,5 +1,5 @@
-let category_code = 101;
-// let category_code = window.localStorage.getItem("catID");
+// let category_code = 101;
+let category_code = window.localStorage.getItem("catID");
 let product_url = PRODUCTS_URL + category_code + EXT_TYPE;
 
 function updateCatName(txt) {
@@ -46,7 +46,7 @@ function setProductId(product_id) {
   window.location.href = "product-info.html";
 }
 
-async function updateProductPage(url) {
+async function showProductsList(url) {
     // console.log(url);
     const result = await getJSONData(url);
     const data = result.data;
@@ -61,4 +61,4 @@ async function updateProductPage(url) {
 }
 
 
-updateProductPage(product_url)
+showProductsList(product_url)
