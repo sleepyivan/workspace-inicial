@@ -59,11 +59,10 @@ function showProductsList() {
 document.addEventListener("DOMContentLoaded", () => {
   getJSONData(product_url).then(function (resultObj) {
     if (resultObj.status === "ok") {
-      console.log(resultObj);
       updateCatName(resultObj.data.catName);
       products_data = resultObj.data.products;
       products_array = resultObj.data.products;
-      
+      console.log(products_array);
       showProductsList();
     }
   });
@@ -116,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } 
 
-    products_array = products_data.filter(product => {
+    products_array = products_array.filter(product => {
       return product.cost >= min() && product.cost <= max()
     });
 
@@ -131,7 +130,34 @@ document.addEventListener("DOMContentLoaded", () => {
     showProductsList();
   });
 
-});
+  // Search
+  document.getElementById("search").addEventListener("keypress", event => {
+    if (event.key === "Enter") {
+      document.getElementById("search-go").click()
+    }
+  });
 
+  document.getElementById("search-go").addEventListener("click", () => {
+    let search_content = document.getElementById("search").value.toLocaleLowerCase();
+
+    if (search_content === "") {
+      products_array = products_data;
+      showProductsList();
+    } else {
+      // split search text into array search individually
+      // return true if part exists
+      search_content_array = search_content.split(" ");
+
+      products_array = products_array.filter( product => {
+        let search_content_array_checked = search_content_array.map(content => {
+          return product.name.toLocaleLowerCase().includes(content)
+        })
+
+        return search_content_array_checked.some((status) => {return status}) 
+      });
+      showProductsList();
+    }
+  });
+});
 
 
