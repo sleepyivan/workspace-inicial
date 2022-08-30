@@ -10,6 +10,11 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <style>
+    .form-control {
+      max-width: 125px;
+    }
+  </style>
 </head>
 
 <body>
@@ -37,7 +42,7 @@
       </div>
     </div>
   </nav>
-  <main class="pb-5 container">
+  <main class="pb-5 container mt-4">
     <div class="container">
       <!-- <div class="alert alert-danger text-center" role="alert"> -->
       <!-- <h4 class="alert-heading">Funcionalidad en desarrollo</h4> -->
@@ -47,6 +52,36 @@
         Verás aquí todos los productos de categoría
         <span id="category_name" class="fw-bold">CatName</span>
       </p>
+
+      <!-- Desafio later -->
+      <!-- <div class="d-flex justify-content-end">
+        <input type="search" name="searh" id="search" placeholder="search">
+      </div> -->
+
+      <div class="d-flex flex-column justify-content-end flex-sm-row">
+        <div class="d-flex justify-content-end gap-2 flex-wrap align-items-center m-2">
+          <span>Precio</span>
+          <input id="filter-range-min" type="number" name="min" class="form-control" placeholder="Minimum" min="0">
+          <span> - </span>
+          <input id="filter-range-max" type="number" name="max" class="form-control" placeholder="Maximum" min="0">
+          <button id="filter-go" type="button" class="btn btn-light">Filtrar</button>
+          <button id="filter-reset" type="button" class="btn btn-light">Limpiar</button>
+        </div>
+        <div class="d-flex justify-content-end gap-1 my-2">
+          <button id="sort-by-price-inc" type="button" class="btn btn-secondary">
+            <i class="fa fa-sort-amount-up" aria-hidden="true"></i>
+            $
+          </button>
+          <button id="sort-by-price-dec" type="button" class="btn btn-secondary">
+            <i class="fa fa-sort-amount-down" aria-hidden="true"></i>
+            $
+          </button>
+          <button  id="sort-by-rel-dec" type="button" class="btn btn-secondary">
+            <i class="fa fa-sort-amount-down" aria-hidden="true"></i>
+            Rel.
+          </button>
+        </div>
+      </div>
 
       <div class="list-group" id="product_list">
         
