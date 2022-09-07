@@ -65,9 +65,9 @@
     </div>
 
     <div class="container">
-      <h3 class="mb-3">Comentarios<sup><span id="comment-num" class="badge rounded-pill bg-light text-dark"></span></sup></h2>
+      <h3 class="mb-3">Comentarios<sup><span id="review-num" class="badge rounded-pill bg-light text-dark"></span></sup></h2>
       <hr>
-      <ul id="prod-comment" class="list-group">
+      <ul id="prod-review" class="list-group">
         
       </ul>
     </div>
@@ -75,9 +75,9 @@
     <div class="container my-4">
       <h3>Comentar</h3>
       <hr>
-      <form id="new-comment" action="">
+      <form id="new-comment" action="" onsubmit="postReview(this)">
         <label for="comment" class="form-label">Tu Opinión: </label>
-        <textarea name="" cols="30" rows="10" class="form-control w-50 mb-3"></textarea>
+        <textarea name="comment" cols="30" rows="10" class="form-control w-50 mb-3"></textarea>
         <label for="score" class="form-label">Tu puntuación: </label>
         <select name="score" class="form-control w-50 mb-3">
           <option value="0">0</option>
