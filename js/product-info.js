@@ -1,5 +1,6 @@
 // Entrega 3.2
 // Haciendo uso del identificador guardado en el punto anterior, realiza la solicitud adecuada para obtener la información de dicho producto y preséntala en product-info.html
+// let product_code = 50921;
 let product_code = window.localStorage.getItem("productID");
 
 let product_info_url = PRODUCT_INFO_URL + product_code + ".json";
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getJSONData(product_info_url).then(result => {
         product_info = result.data;
         showProductInfo();
+        showRelatedProduct();
     });
 
     getJSONData(product_review_url).then(result => {
@@ -120,3 +122,47 @@ function postReview(review) {
     addReview(user, time, score, comment);
     updateReviewNumber(document.getElementById("prod-review").childElementCount);
 }
+
+
+// Entrega 4.1 
+// En la misma página realizada en la entrega anterior con respecto a la información de un producto, muestra también los productos relacionados al mismo, incluyendo su nombre e imagen.
+// Al pulsar sobre uno de los productos relacionados, se debe actualizar la página, mostrando ahora la información de dicho producto.
+
+{/* <a class=""> */}
+{/* <img src="${img_src}" alt="" class="img-fluid"> */}
+// </a>`; 
+
+function showRelatedProduct() {
+    const node = document.getElementById("photo-gallery-relevante");
+
+    function createChildNode(related_product) {
+        const node_new = document.createElement("a");
+        node_new.className = "list-group-item list-group-item-action d-flex flex-column justify-content-between align-items-center w-25";
+        node_new.addEventListener("click", () => {
+            localStorage.setItem("productID", related_product.id);
+            // window.location.href = "product-info.html";
+            window.location.reload();
+        });
+    
+        const node_img = document.createElement("img");
+        node_img.className = "img-fluid";
+        node_img.src = related_product.image;
+        
+        const node_name = document.createElement("p");
+        node_name.innerText = related_product.name;
+        node_name.className = "mb-0";
+
+        node_new.appendChild(node_img);
+        node_new.appendChild(node_name);
+
+        return node_new;
+    }
+
+    for (let related_product of product_info.relatedProducts) {
+        // cons
+        let node_new = createChildNode(related_product);
+        node.appendChild(node_new);
+    }
+
+}
+
