@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // return true if part exists
       search_content_array = search_content.split(" ");
 
-      products_array = products_array.filter( product => {
+      products_array = products_data.filter( product => {
         let search_content_array_checked = search_content_array.map(content => {
           return product.name.toLocaleLowerCase().includes(content)
         })

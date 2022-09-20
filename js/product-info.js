@@ -79,7 +79,7 @@ function showProductReviews() {
             addReview(review.user, review.dateTime, review.score, review.description)
         }
     } else {
-        node.innerHTML = `<h4 class="text-muted text-center">No review yet. Let us know what do you think about the product!</h4>`;
+        document.getElementById("prod-review").innerHTML = `<h4 class="text-muted text-center">No review yet. Let us know what do you think about the product!</h4>`;
     }
 
 }
@@ -107,7 +107,7 @@ document.getElementById("new-comment").addEventListener("submit", event => {
 
 function postReview(review) {
     let user = "";
-    if (sessionStorage.getItem("LOGGEDIN.ACCOUNT") === "") {
+    if (sessionStorage.getItem("LOGGEDIN.ACCOUNT") === null){
         user = "Anonymity";
     } else {
         user = sessionStorage.getItem("LOGGEDIN.ACCOUNT");
