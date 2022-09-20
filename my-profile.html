@@ -48,8 +48,8 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="my-profile.html" id="nav_account">ACCOUNT</a>
+          <li class="nav-item dropdown" id="login-profile">
+            <!-- <a class="nav-link" href="my-profile.html" id="nav_account">ACCOUNT</a> -->
           </li>
         </ul>
       </div>
@@ -121,8 +121,8 @@
       <hr>
       <h4>Email</h4>
       <div class="row px-5">
-      <div class="col">
-        <form action="" class="d-flex justify-content-center align-content-center gap-4">
+        <div class="col">
+          <form action="" class="d-flex justify-content-center align-content-center gap-4">
             <p class="mb-0">
               Tu cuenta de correo: email@email.com
             </p>
@@ -148,9 +148,10 @@
             <label for="oldpassword" class="form-label">Vieja Contraseña</label>
             <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" minlength="8" required>
             <label for="newpassword" class="form-label">Nueva Contraseña</label>
-            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" minlength="8"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
             <label for="newpasswordconfirm" class="form-label">Confirma Contraseña Nueva</label>
-            <input type="password" name="oldpassword" id="oldpassword"class="form-control-sm"required>
+            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" required>
             <button type="submit" class="btn btn-primary mt-3">Cambiar</button>
           </form>
         </div>

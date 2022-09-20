@@ -41,12 +41,44 @@ let getJSONData = function(url){
 }
 
 function updateLoggedInAccount () {
-  const node = document.getElementById("nav_account")
+  const node = document.getElementById("login-profile");
+  const account = sessionStorage.getItem("LOGGEDIN.ACCOUNT");
 
-  if (node !== null) {
-    node.innerText = sessionStorage.getItem("LOGGEDIN.ACCOUNT");
+  if (account !== "") {
+    if (!node.classList.contains("dropdown")) {
+      node.classList.add("dropdown");
+    }
 
+    node.innerHTML = `
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false">${account}</a>
+  
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" href="cart.html">Mi carrito</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="my-profile.html">Mi perfil </a>
+      </li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li>
+        <a class="dropdown-item" onclick="closeSession()">Cerrar sesión</a>
+      </li>
+    </ul>`;
+  } else {
+    if (node.classList.contains("dropdown")) {
+      node.classList.remove();
+    }
+    node.innerHTML = `<a class="nav-link" href="login.html">Login</a>`;
   }
+}
+
+function closeSession() {
+  sessionStorage.setItem("LOGGEDIN.ACCOUNT", "");
+  sessionStorage.setItem("LOGGEDIN", "false");
+  updateLoggedInAccount();
 }
 
 updateLoggedInAccount();
