@@ -10,6 +10,15 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <style>
+    #gallery-product-relevante {
+      max-width: 500px;
+    }
+
+    #gallery-product-relevante_inner h5 {
+      background-color: rgb(255, 255, 255, 0.5);
+    }
+  </style>
 </head>
 
 <body>
@@ -97,6 +106,23 @@
 
       </ul>
 
+    </div>
+
+    <div id="gallery-product-relevante" class="container my-4 carousel carousel-dark slide" data-bs-ride="carousel">
+      <div id="gallery-product-relevante_indicators" class="carousel-indicators">
+      </div>
+      <div id="gallery-product-relevante_inner" class="carousel-inner">
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#gallery-product-relevante"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gallery-product-relevante"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </main>
   <footer class="text-muted">

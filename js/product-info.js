@@ -128,41 +128,108 @@ function postReview(review) {
 // En la misma página realizada en la entrega anterior con respecto a la información de un producto, muestra también los productos relacionados al mismo, incluyendo su nombre e imagen.
 // Al pulsar sobre uno de los productos relacionados, se debe actualizar la página, mostrando ahora la información de dicho producto.
 
-{/* <a class=""> */}
-{/* <img src="${img_src}" alt="" class="img-fluid"> */}
-// </a>`; 
+// function showRelatedProduct() {
+//     const node = document.getElementById("photo-gallery-relevante");
+
+//     function createChildNode(related_product) {
+//         const node_new = document.createElement("a");
+//         node_new.className = "list-group-item list-group-item-action d-flex flex-column justify-content-between align-items-center w-25";
+//         node_new.addEventListener("click", () => {
+//             localStorage.setItem("productID", related_product.id);
+//             // window.location.href = "product-info.html";
+//             window.location.reload();
+//         });
+    
+//         const node_img = document.createElement("img");
+//         node_img.className = "img-fluid";
+//         node_img.src = related_product.image;
+        
+//         const node_name = document.createElement("p");
+//         node_name.innerText = related_product.name;
+//         node_name.className = "mb-0";
+
+//         node_new.appendChild(node_img);
+//         node_new.appendChild(node_name);
+
+//         return node_new;
+//     }
+
+//     for (let related_product of product_info.relatedProducts) {
+//         // cons
+//         let node_new = createChildNode(related_product);
+//         node.appendChild(node_new);
+//     }
+
+// }
 
 function showRelatedProduct() {
-    const node = document.getElementById("photo-gallery-relevante");
-
-    function createChildNode(related_product) {
-        const node_new = document.createElement("a");
-        node_new.className = "list-group-item list-group-item-action d-flex flex-column justify-content-between align-items-center w-25";
-        node_new.addEventListener("click", () => {
-            localStorage.setItem("productID", related_product.id);
-            // window.location.href = "product-info.html";
-            window.location.reload();
-        });
-    
-        const node_img = document.createElement("img");
-        node_img.className = "img-fluid";
-        node_img.src = related_product.image;
+    const node_button = document.getElementById("gallery-product-relevante_indicators");
+    function createButton(index) {
+        const node = document.createElement("button");
+        node.setAttribute("type", "button");
+        node.setAttribute("data-bs-target", "#gallery-product-relevante");
+        node.setAttribute("data-bs-slide-to", index);
         
-        const node_name = document.createElement("p");
-        node_name.innerText = related_product.name;
-        node_name.className = "mb-0";
+        if (index === 0) {
+            node.setAttribute("class", "active");
+            node.setAttribute("aria-current", "true");
+        }
 
-        node_new.appendChild(node_img);
-        node_new.appendChild(node_name);
+        return node
+    }
+    
+    const node_inner = document.getElementById("gallery-product-relevante_inner");
+    function createContext(id, imgsrc, text, index) {
+        const node = document.createElement("div");
+        if (index === 0) {
+            node.setAttribute("class", "carousel-item active");
+        } else {
+            node.setAttribute("class", "carousel-item");
+        }
 
-        return node_new;
+        function createImgNode(id, imgsrc) {
+            // const node = document.createElement("img");
+            const node_a = document.createElement("a");
+            node_a.setAttribute("href", "!#")
+            const node = document.createElement("img");
+            node.setAttribute("class", "d-block w-100");
+            node_a.addEventListener("click", () => {
+                localStorage.setItem("productID", id);
+                window.location.reload();
+            });
+            node.setAttribute("src", imgsrc);
+
+            node_a.appendChild(node);
+            return node_a
+        }
+
+        function createTitleNode(text) {
+            const node = document.createElement("div");
+            node.setAttribute("class", "carousel-caption d-none d-md-block");
+
+            const node_text = document.createElement("h5");
+            node_text.innerText = text;
+            
+            node.appendChild(node_text);
+
+            return node
+        }
+
+        node.appendChild(createImgNode(id, imgsrc));
+        node.appendChild(createTitleNode(text));
+
+        return node
     }
 
-    for (let related_product of product_info.relatedProducts) {
-        // cons
-        let node_new = createChildNode(related_product);
-        node.appendChild(node_new);
+    if (product_info.relatedProducts.length > 0) {
+        let index = 0;
+        for (let product of product_info.relatedProducts) {
+            node_button.appendChild(createButton(index));
+            node_inner.appendChild(createContext(product.id, product.image, product.name, index));
+            // console.log(product.name);
+            index += 1;
+        }
     }
+
 
 }
-
