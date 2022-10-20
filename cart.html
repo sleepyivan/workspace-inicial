@@ -37,11 +37,73 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <!-- <div class="container"> -->
+    <!-- <div class="alert alert-danger text-center" role="alert"> -->
+    <!-- <h4 class="alert-heading">Funcionalidad en desarrollo</h4> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <h2 class="text-center my-3">Carrito de compras</h2>
+    <div class="container my-3">
+      <h3>Artículo a comprar</h3>
+      <table id="cart-tbl" class="table">
+        <tr>
+          <th></th>
+          <th>Nombre</th>
+          <th>Costo</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+      </table>
+      <hr>
+    </div>
+    <div class="container my-3 d-flex flex-column">
+      <h3>Tipo de envío</h3>
+      <label for="delivery-premium">
+        <input type="radio" name="delivery_rate" value="0.15" id="delivery-premium">
+        Premium 2 a 5 días (15%)
+      </label>
+      <label for="delivery-express">
+        <input type="radio" name="delivery_rate" value="0.07" id="delivery-express">
+        Express 5 a 8 días (7%)
+      </label>
+      <label for="delivery-standard">
+        <input type="radio" name="delivery_rate" value="0.05" id="delivery-standard">
+        Standard 12 a 15 días (5%)
+      </label>
+      <hr>
+    </div>
+    <div class="container my-3">
+      <h3>Dirección de envío</h3>
+      <div class="row">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Calle</span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Detalle</span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Esquina</span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Ciudad</span>
+          </div>
+          <input type="text" class="form-control">
+        </div>
       </div>
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

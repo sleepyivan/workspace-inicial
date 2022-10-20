@@ -233,3 +233,22 @@ function showRelatedProduct() {
 
 
 }
+
+// Entraga 5 Individual Desafiate add comprar button
+function addToCart() {
+    let new_item = {
+        "id": product_info.id,
+        "name": product_info.name,
+        "count": 1,
+        "unitCost": product_info.cost,
+        "currency": product_info.currency,
+        "image": product_info.images[0] 
+    };
+
+    localStorage.setItem(
+        "newToCart", JSON.stringify(new_item)
+    );
+
+    window.location.href = "cart.html";
+    
+}
