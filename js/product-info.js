@@ -245,8 +245,18 @@ function addToCart() {
         "image": product_info.images[0] 
     };
 
+    let item_in_local = localStorage.getItem("newToCart");
+
+    if (item_in_local == null) {
+        console.log("😀");
+        item_in_local = [];
+    } else {
+        item_in_local = JSON.parse(item_in_local);
+        item_in_local.push(new_item);
+    }
+
     localStorage.setItem(
-        "newToCart", JSON.stringify(new_item)
+        "newToCart", JSON.stringify(item_in_local)
     );
 
     window.location.href = "cart.html";
