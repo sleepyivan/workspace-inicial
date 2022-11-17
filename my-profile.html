@@ -60,105 +60,54 @@
       <!-- <div class="alert alert-danger text-center" role="alert"> -->
       <!-- <h4 class="alert-heading">Funcionalidad en desarrollo</h4> -->
       <!-- </div> -->
-      <h3>Mi cuenta</h3>
-      <hr>
+      <h4 class="m-4">Perfil</h4>
 
-      <h4>Información Personal</h4>
-
-      <div class="row px-5">
+      <form id="perfil" action="" class="row px-5">
         <div class="col-sm-4 d-inline-flex flex-column justify-content-center align-items-center">
           <p class="fst-italic">Foto</p>
-          <img class="img-thumbnail mb-3" src="img/img_perfil.png" alt="perfil img" style="max-height: 200px;">
-          <button class="btn btn-secondary">Cambiar la Foto</button>
+          <img id="photoimg" class="img-thumbnail mb-3" src="img/img_perfil.png" alt="perfil img"
+            style="max-height: 200px;">
+          <label for="photofile" class="form-label mt-1">Cambiar la Foto</label>
+          <input onchange="updatePhoto()" class="form-control" type="file" name="photofile" id="photofile"
+            accept="image/png, image/jpeg">
         </div>
         <div class="col-sm-8">
-          <form action="">
-            <div class="row mb-3 justify-content-between">
-              <div class="col-6">
-                <label class="form-label" for="firstname">Nombre</label>
-                <input class="form-control" type="text" name="firstname" id="firstname">
-              </div>
-              <div class="col-6">
-                <label class="form-label" for="lastname">Apellido</label>
-                <input class="form-control" type="text" name="lastname" id="lastname">
-              </div>
+          <div class="row mb-3 justify-content-between">
+            <div class="col-6">
+              <label class="form-label" for="name">Nombre*</label>
+              <input class="form-control" type="text" name="name" id="name" required>
             </div>
-            <div class="row justify-content-between mb-3">
-              <div class="col-5">
-                <label class="form-label" for="gender">Género</label>
-                <select name="gender" id="gender" class="form-select">
-                  <option value="m">Hombre</option>
-                  <option value="f">Mujer</option>
-                </select>
-              </div>
-
-              <div class="col-7">
-                <label class="form-label" for="birthday">Fecha de Nacionmiento</label>
-                <input type="date" name="birthday" id="birthday" class="form-control">
-              </div>
+            <div class="col-6">
+              <label class="form-label" for="name_second">Segundo Nombre</label>
+              <input class="form-control" type="text" name="name_second" id="name_second">
             </div>
-            <div class="row mb-3">
-              <div class="col">
-                <label for="phone" class="form-label">Tel.</label>
-                <input type="tel" name="phone" id="phone" class="form-control">
-              </div>
+          </div>
+          <div class="row mb-3 justify-content-between">
+            <div class="col-6">
+              <label class="form-label" for="lastname">Apellido*</label>
+              <input class="form-control" type="text" name="lastname" id="lastname" required>
             </div>
-            <div class="row mb-3">
-              <div class="col">
-                <label for="address" class="form-label">Direeción</label>
-                <input type="text" name="address" id="address" class="form-control">
-              </div>
+            <div class="col-6">
+              <label class="form-label" for="lastname_second">Secundo Apellido</label>
+              <input class="form-control" type="text" name="lastname_second" id="lastname_second">
             </div>
-            <div class="row">
-              <div class="col text-center">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-              </div>
+          </div>
+          <div class="row mb-3 justify-content-between">
+            <div class="col">
+              <label class="form-label" for="email">E-mail*</label>
+              <input type="email" class="form-control" type="text" name="email" id="email" required>
             </div>
-          </form>
+          </div>
+          <div class="row mb-3 justify-content-between">
+            <div class="col">
+              <label class="form-label" for="tel">Tel.</label>
+              <input class="form-control" type="text" name="tel" id="tel">
+            </div>
+          </div>
         </div>
-      </div>
-
-      <hr>
-      <h4>Email</h4>
-      <div class="row px-5">
-        <div class="col">
-          <form action="" class="d-flex justify-content-center align-content-center gap-4">
-            <p class="mb-0">
-              Tu cuenta de correo: email@email.com
-            </p>
-            <input type="email" name="email" id="email" class="form-control-sm" placeholder="Correo Nuevo" required>
-            <button type="submit" class="btn btn-primary">Cambiar</button>
-          </form>
-        </div>
-      </div>
-
-      <hr>
-      <h4>Contraseña</h4>
-      <div class="row px-5">
-        <div class="col d-flex flex-column justify-content-center">
-          <p>Una contraseña valida debe cumplir los requisitos abajo:</p>
-          <ul>
-            <li>Contiene letras (a-Z) y numeros (0-9).</li>
-            <li>La longitud de la contraseña debe ser superior a 8 caracteres.</li>
-          </ul>
-        </div>
-
-        <div class="col px-5">
-          <form action="" class="d-flex flex-column flex">
-            <label for="oldpassword" class="form-label">Vieja Contraseña</label>
-            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" minlength="8" required>
-            <label for="newpassword" class="form-label">Nueva Contraseña</label>
-            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" minlength="8"
-              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-            <label for="newpasswordconfirm" class="form-label">Confirma Contraseña Nueva</label>
-            <input type="password" name="oldpassword" id="oldpassword" class="form-control-sm" required>
-            <button type="submit" class="btn btn-primary mt-3">Cambiar</button>
-          </form>
-        </div>
-
-      </div>
-      <hr>
-    </div>
+        <hr class="my-3">
+        <button type="submit" class="btn btn-primary w-50 mx-auto">Gurdar</button>
+      </form>
   </main>
   <footer class="text-muted">
     <div class="container">
