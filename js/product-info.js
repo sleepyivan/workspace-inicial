@@ -246,13 +246,16 @@ function addToCart() {
     };
 
     let item_in_local = localStorage.getItem("newToCart");
-
-    if (item_in_local == null) {
+    if (item_in_local == null || item_in_local == "") {
         console.log("😀");
         item_in_local = [];
     } else {
         item_in_local = JSON.parse(item_in_local);
-        item_in_local.push(new_item);
+        if (Array.isArray(item_in_local)) {
+            item_in_local.push(new_item);
+        } else {
+            item_in_local = [] 
+        }
     }
 
     localStorage.setItem(

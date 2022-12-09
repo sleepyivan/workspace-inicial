@@ -1,6 +1,6 @@
-// let user_id = "25801";
-// let cart_url = CART_INFO_URL + user_id + ".json";
-const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
+let user_id = "25801";
+let cart_url = CART_INFO_URL + user_id + ".json";
+// const cart_url = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
 
 var product_in_cart;
 
@@ -38,7 +38,7 @@ let cost_lst = {
 function getNewItemFromLocalstorage() {
     if (localStorage.getItem("newToCart") !== undefined) {
         const items_in_local = JSON.parse(localStorage.getItem("newToCart"));
-
+        
         items_in_local.forEach(
             item => product_in_cart.push(item)
         )
